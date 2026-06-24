@@ -278,11 +278,9 @@
             const cursor = new cursoreffects.snowflakeCursor();
         });
 
-        // --- Audio Button Logic ---
         const pressAudio = new Audio('press.mp3');
         const releaseAudio = new Audio('release.mp3');
 
-        // Preload the audio to avoid delay
         pressAudio.preload = 'auto';
         releaseAudio.preload = 'auto';
 
@@ -291,7 +289,6 @@
             
             button.addEventListener('mousedown', () => {
                 mouseDownTime = Date.now();
-                // Reset time to allow rapid overlapping clicks
                 pressAudio.currentTime = 0;
                 pressAudio.play().catch(e => console.log('Audio error:', e));
             });
