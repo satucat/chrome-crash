@@ -1,7 +1,326 @@
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>saturn</title>
+    <style>
+        @font-face {
+            font-family: 'Willow';
+            src: url('willow.woff2') format('woff2');
+        }
+
+        body {
+            background-color: #121212;
+            color: #f0f0f0;
+            font-family: 'Willow', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            cursor: none;
+        }
+
+        #custom-cursor {
+            position: fixed;
+            pointer-events: none;
+            width: 20px;
+            height: auto;
+            z-index: 9999;
+        }
+
+        #star-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            color: #16c5fa;
+            font-family: monospace;
+            user-select: none;
+            animation: blink step-end forwards;
+        }
+
+        @keyframes blink {
+
+            0%,
+            40%,
+            80% {
+                opacity: 1;
+            }
+
+            20%,
+            60%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .header-container {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px 0 5px 0;
+        }
+
+        h1 {
+            font-weight: normal;
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: 4px;
+            text-align: left;
+        }
+
+        .header-image {
+            width: 90px;
+            height: auto;
+            pointer-events: none;
+        }
+
+        hr {
+            border: 0;
+            border-top: 3px solid #555;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 0 20px 0;
+        }
+
+        p {
+            font-size: 1.2rem;
+            width: 100%;
+            max-width: 600px;
+            line-height: 1.6;
+            margin: 0;
+            opacity: 0.85;
+            font-family: 'Willow', sans-serif;
+            text-align: left;
+        }
+
+        .socials {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            width: 100%;
+            max-width: 600px;
+            justify-content: flex-start;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 8px;
+            text-decoration: none;
+            color: #f0f0f0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            cursor: none;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .social-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .social-link:hover .social-icon {
+            transform: rotate(360deg) scale(1.1);
+            background: #16c5fa;
+            color: #121212;
+        }
+
+        .social-username {
+            max-width: 0;
+            opacity: 0;
+            white-space: nowrap;
+            transition: all 0.4s ease;
+            font-size: 1rem;
+            margin-left: 0;
+        }
+
+        .social-link:hover .social-username {
+            max-width: 180px;
+            opacity: 1;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #16c5fa;
+            box-shadow: 0 4px 15px rgba(22, 197, 250, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <img id="custom-cursor" src="cursor.png" alt="cursor">
+    <div id="star-container"></div>
+
+    <div class="header-container">
+        <h1>saturn</h1>
+        <img src="kupyadel.png" alt="kupyadel" class="header-image">
+    </div>
+    <hr>
+    <p>hi, i'm saturn.</p>
+    <p>you can also call me satucat, satu, or onecat.</p>
+    <p>i'm interested in tech, coding, and many more.</p>
+    <p>i know luau, css, html, scratch, python, that lot.</p>
+
+    <div class="socials">
+        <a href="https://discord.com/users/1246508479678513212" target="_blank" class="social-link">
+            <div class="social-icon">
+                <svg viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg">
+                    <title>Discord</title>
+                    <path
+                        d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" />
+                </svg>
+            </div>
+            <span class="social-username">satu.zip</span>
+        </a>
+        <a href="https://t.me/saturncat06" target="_blank" class="social-link">
+            <div class="social-icon">
+                <svg viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg">
+                    <title>Telegram</title>
+                    <path
+                        d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+                </svg>
+            </div>
+            <span class="social-username">saturncat06</span>
+        </a>
+        <a href="https://www.tiktok.com/@saturncat06" target="_blank" class="social-link">
+            <div class="social-icon">
+                <svg viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg">
+                    <title>TikTok</title>
+                    <path
+                        d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                </svg>
+            </div>
+            <span class="social-username">saturncat06</span>
+        </a>
+        <a href="https://www.roblox.com/users/970445711/profile" target="_blank" class="social-link">
+            <div class="social-icon">
+                <svg viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg">
+                    <title>Roblox</title>
+                    <path
+                        d="M18.926 23.998 0 18.892 5.075.002 24 5.108ZM15.348 10.09l-5.282-1.453-1.414 5.273 5.282 1.453z" />
+                </svg>
+            </div>
+            <span class="social-username">SaturnOnSchoolWiFi</span>
+        </a>
+    </div>
+
     <script>
-      window.location.href = "chrome://inducebrowsercrashforrealz";
+        const container = document.getElementById('star-container');
+        const chars = ['*', '+', '.', 'x', '✧', '★'];
+
+        function spawnStar() {
+            if (!container) return;
+
+            let star = document.createElement('span');
+            star.className = 'star';
+            star.textContent = chars[Math.floor(Math.random() * chars.length)];
+
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.fontSize = (Math.random() * 1.5 + 0.5) + 'rem';
+
+            let time = Math.random() * 4 + 3;
+            star.style.animationDuration = time + 's';
+
+            container.appendChild(star);
+            setTimeout(() => star.remove(), time * 1000);
+        }
+
+        for (let i = 0; i < 150; i++) {
+            setTimeout(spawnStar, Math.random() * 4000);
+        }
+
+        setInterval(spawnStar, 100);
+
+        const customCursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            customCursor.style.left = e.clientX + 'px';
+            customCursor.style.top = e.clientY + 'px';
+        });
     </script>
-  </head>
+    <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+    <script>
+        window.addEventListener("load", () => {
+            const cursor = new cursoreffects.snowflakeCursor();
+        });
+
+        // --- Audio Button Logic ---
+        const pressAudio = new Audio('press.mp3');
+        const releaseAudio = new Audio('release.mp3');
+
+        // Preload the audio to avoid delay
+        pressAudio.preload = 'auto';
+        releaseAudio.preload = 'auto';
+
+        document.querySelectorAll('.social-link').forEach(button => {
+            let mouseDownTime = 0;
+            
+            button.addEventListener('mousedown', () => {
+                mouseDownTime = Date.now();
+                // Reset time to allow rapid overlapping clicks
+                pressAudio.currentTime = 0;
+                pressAudio.play().catch(e => console.log('Audio error:', e));
+            });
+
+            button.addEventListener('mouseup', () => {
+                if (!mouseDownTime) return;
+                const timeElapsed = Date.now() - mouseDownTime;
+                const delay = Math.max(0, 40 - timeElapsed);
+                
+                setTimeout(() => {
+                    releaseAudio.currentTime = 0;
+                    releaseAudio.play().catch(e => console.log('Audio error:', e));
+                }, delay);
+                mouseDownTime = 0;
+            });
+
+            button.addEventListener('mouseleave', () => {
+                if (mouseDownTime > 0) {
+                    const timeElapsed = Date.now() - mouseDownTime;
+                    const delay = Math.max(0, 40 - timeElapsed);
+                    setTimeout(() => {
+                        releaseAudio.currentTime = 0;
+                        releaseAudio.play().catch(e => console.log('Audio error:', e));
+                    }, delay);
+                    mouseDownTime = 0;
+                }
+            });
+        });
+    </script>
+</body>
+
 </html>
