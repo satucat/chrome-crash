@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Zipline",
+        "description": "A free, open-source file uploading service. I self host it, and if you want access, DM me on discord",
+        "iconUrl": "icons/zipline.png",
+        "link": "https://satu.zip"
+    },
+    {
+        "title": "Vanilla",
+        "description": "A bot that uploads Roblox audios and tells you if they're accepted or denied. Also has some other features like downloading from YouTube with no ads and interruptions, with a 10gb file limit. Invite only, if you wish to have access, DM me on discord",
+        "iconUrl": "icons/vanilla.png",
+        "link": "https://discord.com/users/1507276545952190474"
+    }
+]

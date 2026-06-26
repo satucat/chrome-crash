@@ -264,6 +264,253 @@
             border-color: #16c5fa;
             box-shadow: 0 4px 15px rgba(22, 197, 250, 0.2);
         }
+
+        #projects-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(18, 18, 18, 0.95);
+            z-index: 99996;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s;
+            cursor: none;
+        }
+
+        #projects-menu.visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        #projects-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: #f0f0f0;
+            font-size: 3rem;
+            cursor: none;
+            font-family: monospace;
+            transition: color 0.3s;
+            padding: 10px;
+            line-height: 1;
+        }
+
+        #projects-close:hover {
+            color: #16c5fa;
+        }
+
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 70vh;
+            overflow-y: auto;
+            padding-right: 10px;
+            margin-top: 20px;
+        }
+
+        .project-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-align: left;
+            transition: border-color 0.3s;
+        }
+
+        .project-item:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .project-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .project-content {
+            flex-grow: 1;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin: 0 0 10px 0;
+            color: #16c5fa;
+        }
+
+        .project-desc {
+            font-size: 1rem;
+            margin: 0 0 15px 0;
+            color: #ccc;
+        }
+
+        .project-link {
+            display: inline-block;
+            background: #16c5fa;
+            color: #121212;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: none;
+            transition: background 0.3s, transform 0.2s;
+            font-family: monospace;
+            font-size: 1rem;
+        }
+
+        .project-link:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        .project-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .project-list::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        .project-list::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        .project-list::-webkit-scrollbar-thumb:hover {
+            background: #16c5fa;
+        }
+
+        #lanyard-card {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 15px 20px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+            gap: 15px;
+            text-align: left;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            cursor: none;
+        }
+
+        #lanyard-card:hover {
+            border-color: #16c5fa;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 15px rgba(22, 197, 250, 0.15);
+        }
+
+        .lanyard-avatar-container {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
+        }
+
+        .lanyard-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .lanyard-status-indicator {
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: #1a1a1a;
+            border: 3px solid #1a1a1a;
+            box-sizing: content-box;
+            object-fit: contain;
+            display: none;
+        }
+
+        .lanyard-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .lanyard-name {
+            font-size: 1.2rem;
+            color: #f0f0f0;
+            margin: 0 0 2px 0;
+            font-family: monospace;
+            font-weight: bold;
+            text-align: left;
+            width: auto;
+        }
+
+        .lanyard-status-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 6px;
+        }
+
+        .lanyard-status {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-family: 'Willow', sans-serif;
+            text-align: left;
+            width: auto;
+        }
+
+        .twemoji {
+            width: 1.2em;
+            height: 1.2em;
+            margin: 0 .05em 0 .1em;
+            vertical-align: -0.2em;
+        }
+
+        .lanyard-activity-icon {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
     </style>
 </head>
 
@@ -291,6 +538,20 @@
         <p>you can also call me satucat, satu, or onecat.</p>
         <p>i'm interested in tech, coding, and many more.</p>
         <p>i know luau, css, html, scratch, python, that lot.</p>
+
+        <a href="https://discord.com/users/1246508479678513212" target="_blank" id="lanyard-card">
+            <div class="lanyard-avatar-container">
+                <img src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Discord Avatar" class="lanyard-avatar" id="lanyard-avatar">
+                <img class="lanyard-status-indicator" id="lanyard-status-dot" src="" alt="Status">
+            </div>
+            <div class="lanyard-info">
+                <p class="lanyard-name" id="lanyard-name">Loading...</p>
+                <div class="lanyard-status-container" id="lanyard-status-container">
+                    <img id="lanyard-activity-icon" class="lanyard-activity-icon" style="display:none;" alt="Activity Icon">
+                    <p class="lanyard-status" id="lanyard-status">Fetching Discord status...</p>
+                </div>
+            </div>
+        </a>
 
         <div class="socials">
             <a href="https://discord.com/users/1246508479678513212" target="_blank" class="social-link">
@@ -333,8 +594,26 @@
                 </div>
                 <span class="social-username">SaturnOnSchoolWiFi</span>
             </a>
+            <div class="social-link" id="projects-btn">
+                <div class="social-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 20L14 4M18 8L22 12L18 16M6 16L2 12L6 8" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <span class="social-username">Projects</span>
+            </div>
         </div>
     </div> <!-- it's me. crewmate. i am the good guy from the spaceship -->
+
+    <div id="projects-menu">
+        <button id="projects-close">×</button>
+        <h2
+            style="font-size: 3rem; font-weight: normal; margin-bottom: 10px; letter-spacing: 4px; color: #f0f0f0; font-family: 'Willow', sans-serif;">
+            projects</h2>
+        <div class="project-list" id="project-list">
+        </div>
+    </div>
 
     <script>
         const femboys = [':3', '>w<', "thigh highs"] // DELETING THIS WILL BREAK THE CODE!!!!!  
@@ -363,7 +642,7 @@
             setTimeout(spawnStar, Math.random() * 4000);
         }
 
-        setInterval(spawnStar, 100);
+        setInterval(spawnStar, 33);
     </script>
     <script src="https://unpkg.com/kursor"></script>
     <script>
@@ -375,7 +654,7 @@
 
         const bgMusic = new Audio('bg.mp3');
         bgMusic.loop = true;
-        bgMusic.volume = 0.5;
+        bgMusic.volume = 1;
 
         const pressAudio = new Audio('press.mp3');
         const releaseAudio = new Audio('release.mp3');
@@ -504,7 +783,163 @@
             isPageActive = !document.hidden;
             updateAudioState();
         });
+
+        async function fetchLanyard() {
+            try {
+                const res = await fetch('https://api.lanyard.rest/v1/users/1246508479678513212');
+                const json = await res.json();
+                if (!json.success) throw new Error('failed');
+
+                const data = json.data;
+                const user = data.discord_user;
+
+                const ext = user.avatar && user.avatar.startsWith('a_') ? 'gif' : 'png';
+                const avatarUrl = user.avatar ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${ext}?size=128` : `https://cdn.discordapp.com/embed/avatars/0.png`;
+                document.getElementById('lanyard-avatar').src = avatarUrl;
+
+                document.getElementById('lanyard-name').textContent = user.global_name || user.display_name || user.username;
+
+                const dot = document.getElementById('lanyard-status-dot');
+                dot.style.display = 'block';
+                if (data.discord_status === 'online') {
+                    dot.src = 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Basic_green_dot.png';
+                } else if (data.discord_status === 'idle') {
+                    dot.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23faa61a' stroke='%23faa61a' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 5h4'/%3E%3Cpath d='M20 3v4'/%3E%3Cpath d='M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401'/%3E%3C/svg%3E";
+                } else if (data.discord_status === 'dnd') {
+                    dot.src = 'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/26d4.svg';
+                } else {
+                    dot.src = 'https://upload.wikimedia.org/wikipedia/commons/3/30/Basic_gray_dot.png';
+                }
+
+                let statusText = 'not up to anything...';
+                let iconUrl = '';
+
+                if (data.activities && data.activities.length > 0) {
+                    const custom = data.activities.find(a => a.id === 'custom');
+                    const nonCustom = data.activities.find(a => a.id !== 'custom');
+
+                    if (nonCustom) {
+                        if (nonCustom.type === 2) {
+                            statusText = `Listening to ${nonCustom.details || nonCustom.name}`;
+                            iconUrl = 'https://www.svgrepo.com/show/512497/music-note-2.svg';
+                        } else if (nonCustom.type === 0) {
+                            statusText = `Playing ${nonCustom.name}`;
+                            iconUrl = 'https://www.svgrepo.com/show/510970/gamepad.svg';
+                        } else if (nonCustom.type === 3) {
+                            statusText = `Watching ${nonCustom.name}`;
+                            iconUrl = 'https://www.svgrepo.com/show/510313/tv.svg';
+                        } else {
+                            statusText = `Playing ${nonCustom.name}`;
+                            iconUrl = 'https://www.svgrepo.com/show/510970/gamepad.svg';
+                        }
+                    } else if (custom) {
+                        statusText = custom.state || custom.name || '';
+                        if (custom.emoji) {
+                            if (custom.emoji.id) {
+                                iconUrl = `https://cdn.discordapp.com/emojis/${custom.emoji.id}.${custom.emoji.animated ? 'gif' : 'png'}`;
+                            } else if (custom.emoji.name) {
+                                statusText = `${custom.emoji.name} ${statusText}`;
+                            }
+                        }
+                    }
+                }
+
+                document.getElementById('lanyard-status').textContent = statusText;
+
+                const actIcon = document.getElementById('lanyard-activity-icon');
+                if (iconUrl) {
+                    actIcon.src = iconUrl;
+                    actIcon.style.display = 'inline-block';
+                } else {
+                    actIcon.style.display = 'none';
+                }
+
+                if (window.twemoji) {
+                    twemoji.parse(document.getElementById('lanyard-status-container'), {
+                        folder: 'svg',
+                        ext: '.svg',
+                        className: 'twemoji'
+                    });
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        fetchLanyard();
+        setInterval(fetchLanyard, 15000);
+
+        const projectsBtn = document.getElementById('projects-btn');
+        const projectsMenu = document.getElementById('projects-menu');
+        const projectsClose = document.getElementById('projects-close');
+        const projectList = document.getElementById('project-list');
+
+        projectsBtn.addEventListener('click', () => {
+            projectsMenu.classList.add('visible');
+            loadProjects();
+        });
+
+        projectsClose.addEventListener('click', () => {
+            projectsMenu.classList.remove('visible');
+        });
+
+        async function loadProjects() {
+            try {
+                const response = await fetch('projects.json');
+                const projects = await response.json();
+
+                projectList.innerHTML = '';
+                projects.forEach(project => {
+                    const item = document.createElement('div');
+                    item.className = 'project-item';
+
+                    let iconHTML = '';
+                    if (project.svgCode) {
+                        iconHTML = project.svgCode;
+                    } else if (project.iconUrl) {
+                        iconHTML = `<img src="${project.iconUrl}" alt="${project.title} icon">`;
+                    }
+
+                    item.innerHTML = `
+                        <div class="project-icon">
+                            ${iconHTML}
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">${project.title}</h3>
+                            <p class="project-desc">${project.description}</p>
+                            <a href="${project.link}" target="_blank" class="project-link">View Project</a>
+                        </div>
+                    `;
+                    projectList.appendChild(item);
+                });
+
+                projectList.querySelectorAll('.project-link').forEach(link => {
+                    link.addEventListener('mouseenter', () => {
+                        hoverAudio.currentTime = 0;
+                        hoverAudio.play().catch(e => console.log('err :', e));
+                    });
+                    link.addEventListener('mousedown', () => {
+                        pressAudio.currentTime = 0;
+                        pressAudio.play().catch(e => console.log('err :', e));
+                    });
+                });
+            } catch (error) {
+                console.error(error);
+                projectList.innerHTML = '<p>failed to load</p>';
+            }
+        }
+
+        projectsBtn.addEventListener('mouseenter', () => {
+            hoverAudio.currentTime = 0;
+            hoverAudio.play().catch(e => console.log('err :', e));
+        });
+
+        projectsClose.addEventListener('mouseenter', () => {
+            hoverAudio.currentTime = 0;
+            hoverAudio.play().catch(e => console.log('err :', e));
+        });
     </script>
+    <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js"></script>
 </body>
 
 </html>
